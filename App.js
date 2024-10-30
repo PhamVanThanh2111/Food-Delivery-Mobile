@@ -5,17 +5,19 @@ import ScreenWelcome from './javascript/ScreenWelcome'
 import WalkThrough01 from './javascript/ScreenWalkThrough01'
 import WalkThrough02 from './javascript/ScreenWalkThrough02'
 import WalkThrough03 from './javascript/ScreenWalkThrough03'
+import SignIn from './javascript/ScreenSignIn'
 
 const Stack = createStackNavigator();
 
 const YourApp = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="WalkThrough03">
+      <Stack.Navigator initialRouteName="SignIn">
         <Stack.Screen name="ScreenWelcome" component={ScreenWelcome} />
         <Stack.Screen name="WalkThrough01" component={WalkThrough01} />
         <Stack.Screen name="WalkThrough02" component={WalkThrough02} />
         <Stack.Screen name="WalkThrough03" component={WalkThrough03} />
+        <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
     </NavigationContainer>
   );

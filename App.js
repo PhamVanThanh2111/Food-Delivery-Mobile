@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 const YourApp = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ForgotPassword">
+      <Stack.Navigator initialRouteName="ScreenWelcome">
         <Stack.Screen name="ScreenWelcome" component={ScreenWelcome} />
         <Stack.Screen name="WalkThrough01" component={WalkThrough01} />
         <Stack.Screen name="WalkThrough02" component={WalkThrough02} />

@@ -6,19 +6,27 @@ const WelcomeScreen = () => {
       <View style={styles.header}>
         <Image
           style={styles.circleBackground}
-            source={require('../images/ScreenWelcome_Circle_Background.png')}
+          source={require('../images/ScreenWelcome_Circle_Background.png')}
         />
         <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImage}
-            source={require('../images/logo.png')}
-          />
           <Image
             style={styles.logoText}
             source={{ uri: 'https://placeholder.pics/svg/362.84x49' }}
           />
         </View>
-        <Text style={styles.brandText}>Tamang FoodService</Text>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            columnGap: 20,
+            alignItems: 'center',
+          }}>
+          <Image
+            style={styles.logoImage}
+            source={require('../images/logo.png')}
+          />
+          <Text style={styles.brandText}>Tamang FoodService</Text>
+        </View>
       </View>
 
       <Image
@@ -29,7 +37,8 @@ const WelcomeScreen = () => {
       <View style={styles.textContainer}>
         <Text style={styles.title}>Welcome</Text>
         <Text style={styles.subtitle}>
-          It’s a pleasure to meet you. We are excited that you’re here so let’s get started!
+          It’s a pleasure to meet you. We are excited that you’re here so let’s
+          get started!
         </Text>
       </View>
 

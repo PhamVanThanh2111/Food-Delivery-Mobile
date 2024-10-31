@@ -1,5 +1,14 @@
 import React from 'react';
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -19,7 +28,9 @@ const SignIn = () => {
 const TextContent = () => {
   return (
     <View style={textContentStyles.container}>
-      <Text style={textContentStyles.welcomeText}>Welcome to Tamang Food Services</Text>
+      <Text style={textContentStyles.welcomeText}>
+        Welcome to Tamang Food Services
+      </Text>
       <Text style={textContentStyles.descriptionText}>
         Enter your Phone number or Email address for sign in. Enjoy your food :)
       </Text>
@@ -31,13 +42,13 @@ const Form = () => {
   return (
     <View style={formStyles.container}>
       <Text style={formStyles.label}>EMAIL ADDRESS</Text>
-      <TextInput 
-        style={formStyles.input} 
+      <TextInput
+        style={formStyles.input}
         placeholder="sajin tamang figma @.com"
       />
       <Text style={formStyles.label}>PASSWORD</Text>
-      <TextInput 
-        style={formStyles.input} 
+      <TextInput
+        style={formStyles.input}
         placeholder="******"
         secureTextEntry
       />
@@ -66,7 +77,9 @@ const CreateAccount = () => {
     <View style={createAccountStyles.container}>
       <Text style={createAccountStyles.text}>Don’t have account?</Text>
       <TouchableOpacity>
-        <Text style={createAccountStyles.createAccountText}>Create new account.</Text>
+        <Text style={createAccountStyles.createAccountText}>
+          Create new account.
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -81,7 +94,9 @@ const SocialButtons = () => {
           source={require('../images/facebook.png')}
           style={socialButtonsStyles.icon}
         />
-        <Text style={socialButtonsStyles.buttonText}>CONNECT WITH FACEBOOK</Text>
+        <Text style={socialButtonsStyles.buttonText}>
+          CONNECT WITH FACEBOOK
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity style={socialButtonsStyles.googleButton}>
         <Image
@@ -108,24 +123,24 @@ const styles = StyleSheet.create({
     opacity: 0.64,
     alignSelf: 'flex-end',
     marginVertical: 10,
-  }
+  },
 });
 
 const textContentStyles = StyleSheet.create({
   container: {
     paddingVertical: 20,
-    alignItems: 'center',
+    width: screenWidth * 0.9,
   },
   welcomeText: {
     fontSize: 33,
     fontWeight: '300',
     color: '#010F07',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   descriptionText: {
     fontSize: 16,
     color: '#868686',
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: 10,
   },
 });
@@ -205,6 +220,7 @@ const socialButtonsStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
+    display: 'relative',
   },
   googleButton: {
     flexDirection: 'row',
@@ -215,16 +231,19 @@ const socialButtonsStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
+    display: 'relative',
   },
   icon: {
     width: 28,
     height: 28,
-    marginHorizontal: 10,
+    display: 'absolute',
+    left: -40,
   },
   buttonText: {
     color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '600',
+    width: 180,
   },
 });
 

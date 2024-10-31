@@ -1,5 +1,13 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -22,7 +30,7 @@ const HeaderText = () => {
         source={require('../images/logo.png')}
         style={headerTextStyles.image}
       />
-      <Text style={headerTextStyles.text}>Tamang FoodService</Text>
+      <Text style={headerTextStyles.text}>{'Tamang\nFoodService'}</Text>
     </View>
   );
 };
@@ -30,9 +38,9 @@ const HeaderText = () => {
 const Illustrations = () => {
   return (
     <View style={illustrationStyles.container}>
-      <Image 
-        source={require('../images/ScreenWalkThrough03_Illustrations.png')} 
-        style={illustrationStyles.image} 
+      <Image
+        source={require('../images/ScreenWalkThrough03_Illustrations.png')}
+        style={illustrationStyles.image}
       />
     </View>
   );
@@ -43,7 +51,8 @@ const DescriptionText = () => {
     <View style={descriptionTextStyles.container}>
       <Text style={descriptionTextStyles.header}>Free delivery offers</Text>
       <Text style={descriptionTextStyles.description}>
-        Free delivery for new customers via Apple Pay and others payment methods.
+        Free delivery for new customers via Apple Pay and others payment
+        methods.
       </Text>
     </View>
   );
@@ -55,7 +64,11 @@ const Indicator = ({ activeIndex = 0, total = 3 }) => {
       {[...Array(total)].map((_, index) => (
         <View
           key={index}
-          style={index === activeIndex ? indicatorStyles.activeDot : indicatorStyles.inactiveDot}
+          style={
+            index === activeIndex
+              ? indicatorStyles.activeDot
+              : indicatorStyles.inactiveDot
+          }
         />
       ))}
     </View>
@@ -76,14 +89,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
 });
 
 const headerTextStyles = StyleSheet.create({
   container: {
-    alignItems: 'center',
     marginBottom: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    columnGap: 20,
+    alignItems: 'center',
   },
   image: {
     width: 65,

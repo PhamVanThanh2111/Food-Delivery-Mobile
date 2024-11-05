@@ -15,7 +15,7 @@ const SingleRestaurant = ({ navigation }) => (
       <HeaderImage />
       <RestaurantInfo />
       <ActionButtons />
-      <FeaturedItems />
+      <FeaturedItems navigation={navigation} />
       <MenuTabs />
       <MostPopulars />
       <SeaFoods />
@@ -76,12 +76,12 @@ const FeaturedItemsData = [
   { id: 3, name: 'Dim SUm', img: require('../images/DimSum.png') },
 ];
 
-const FeaturedItems = () => (
+const FeaturedItems = ({navigation}) => (
   <View style={styles.featuredContainer}>
     <Text style={styles.title}>Featured Items</Text>
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {FeaturedItemsData.map((item, index) => (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{navigation.navigate('AddToOrder')}}>
           <View key={index} style={styles.card}>
             <Image source={item.img} style={styles.image} />
             <Text style={styles.cardTitle}>{item.name}</Text>

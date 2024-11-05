@@ -16,6 +16,7 @@ import SingleRestaurant from './javascript/SingleRestaurant'
 import TypeLocation from './javascript/TypeLocation'
 import EnterAddress from './javascript/EnterAddress'
 import ConfirmPhoneNumber from './javascript/ConfirmPhoneNumber'
+import AddToOrder from './javascript/AddToOrder'
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,7 @@ const YourApp = () => {
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="FeaturedPartners" component={FeaturedPartners} />
         <Stack.Screen name="SingleRestaurant" component={SingleRestaurant} />
+        <Stack.Screen name="AddToOrder" component={AddToOrder} />
       </Stack.Navigator>
     </NavigationContainer>
   );

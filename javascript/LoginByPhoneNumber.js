@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity, TextInput, Modal, FlatList } from 'react-native';
 
-const LoginByPhoneNumber = () => {
+const LoginByPhoneNumber = ({navigation}) => {
   return (
     <View style={styles.appContainer}>
       <TextContent />
       <PhoneNumberInput />
-      <PrimaryButton />
+      <PrimaryButton navigation={navigation} />
     </View>
   );
 };
@@ -70,9 +70,9 @@ const PhoneNumberInput = () => {
   );
 };
 
-const PrimaryButton = () => {
+const PrimaryButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('HomePage')}}>
       <Text style={styles.buttonText}>SIGN UP</Text>
     </TouchableOpacity>
   );

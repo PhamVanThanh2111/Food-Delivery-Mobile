@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -8,12 +8,6 @@ const WelcomeScreen = () => {
           style={styles.circleBackground}
           source={require('../images/ScreenWelcome_Circle_Background.png')}
         />
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoText}
-            source={{ uri: 'https://placeholder.pics/svg/362.84x49' }}
-          />
-        </View>
         <View
           style={{
             display: 'flex',
@@ -42,8 +36,13 @@ const WelcomeScreen = () => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>GET STARTED</Text>
+      <TouchableOpacity style={styles.button} onPress={() => {
+            navigation.navigate('WalkThrough01');
+          }}>
+        <Text
+          style={styles.buttonText}>
+          GET STARTED
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -68,17 +67,9 @@ const styles = StyleSheet.create({
     top: -30,
     left: -30,
   },
-  logoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   logoImage: {
     width: 65,
     height: 65,
-  },
-  logoText: {
-    width: 362.84,
-    height: 49,
   },
   brandText: {
     fontSize: 37,

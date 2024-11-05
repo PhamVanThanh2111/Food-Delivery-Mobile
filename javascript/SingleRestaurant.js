@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const SingleRestaurant = () => (
+const SingleRestaurant = ({navigation}) => (
   <SafeAreaView style={{ flex: 1 }}>
     <ScrollView>
       <HeaderImage />

@@ -9,7 +9,7 @@ import {
   ScrollView
 } from 'react-native';
 
-const HomePage = () => {
+const HomePage = ({navigation}) => {
   const featuredPartners = [
     {
       key: '1',
@@ -71,7 +71,7 @@ const HomePage = () => {
 
       <Image style={styles.banner} source={require('../images/Header.png')} />
 
-      <Section title="Featured Partners" data={featuredPartners} />
+      <Section title="Featured Partners" data={featuredPartners} navigation={navigation} />
       <Image
         style={styles.deliveryBanner}
         source={{ uri: 'https://placeholder.pics/svg/335x119' }}
@@ -89,11 +89,11 @@ const HomePage = () => {
   );
 };
 
-const Section = ({ title, data }) => (
+const Section = ({ title, data, navigation }) => (
   <View>
     <View style={styles.sectionHeader}>
       <Text style={styles.sectionTitle}>{title}</Text>
-      <Text style={styles.seeAll}>See all</Text>
+      <Text style={styles.seeAll} onPress={()=>{navigation.navigate('FeaturedPartners')}}>See all</Text>
     </View>
     <FlatList
       horizontal
@@ -143,7 +143,7 @@ const CardVertical = ({ title, subtitle, img }) => (
 
 const Tab = ({ label, img, active }) => (
   <View style={styles.tab}>
-  <Image uri={{img}} />
+  <Image source={{uri: img}} />
     <Text style={[styles.tabLabel, active && styles.tabLabelActive]}>
       {label}
     </Text>

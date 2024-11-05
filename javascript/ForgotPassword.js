@@ -1,14 +1,23 @@
 import React from 'react';
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const ForgotPassword = () => {
+const ForgotPassword = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <TextContent />
       <Form />
-      <ResetButton />
+      <ResetButton navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -28,17 +37,21 @@ const Form = () => {
   return (
     <View style={formStyles.container}>
       <Text style={formStyles.label}>EMAIL ADDRESS</Text>
-      <TextInput 
-        style={formStyles.input} 
+      <TextInput
+        style={formStyles.input}
         placeholder="sajin tamang figma @.com"
       />
     </View>
   );
 };
 
-const ResetButton = () => {
+const ResetButton = ({ navigation }) => {
   return (
-    <TouchableOpacity style={buttonStyles.signInButton}>
+    <TouchableOpacity
+      style={buttonStyles.signInButton}
+      onPress={() => {
+        navigation.navigate('ResetEmail');
+      }}>
       <Text style={buttonStyles.buttonText}>RESET PASSWORD</Text>
     </TouchableOpacity>
   );

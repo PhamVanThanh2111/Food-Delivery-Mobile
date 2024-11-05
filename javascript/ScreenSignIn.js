@@ -12,13 +12,13 @@ import {
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <TextContent />
       <Form />
       <ForgotPassword />
-      <SignInButton />
+      <SignInButton navigation={navigation} />
       <CreateAccount />
       <SocialButtons />
     </SafeAreaView>
@@ -64,9 +64,13 @@ const ForgotPassword = () => {
   );
 };
 
-const SignInButton = () => {
+const SignInButton = ({ navigation }) => {
   return (
-    <TouchableOpacity style={buttonStyles.signInButton}>
+    <TouchableOpacity
+      style={buttonStyles.signInButton}
+      onPress={() => {
+        navigation.navigate('ForgotPassword');
+      }}>
       <Text style={buttonStyles.buttonText}>SIGN IN</Text>
     </TouchableOpacity>
   );

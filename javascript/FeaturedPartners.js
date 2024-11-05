@@ -33,14 +33,16 @@ const restaurantData = [
   },
 ];
 
-const RestaurantCard = ({ item }) => {
+const RestaurantCard = ({ item, navigation }) => {
   const { imageSrc, title } = item;
   return (
-    <View style={styles.cardContainer}>
-      <Image source={imageSrc} style={styles.image} />
-      <Text style={styles.name}>{title}</Text>
-      <Text style={styles.cuisines}>Chinese • American</Text>
-    </View>
+    <TouchableOpacity onPress={()=>{navigation.navigate('SingleRestaurant')}}>
+      <View style={styles.cardContainer}>
+        <Image source={imageSrc} style={styles.image} />
+        <Text style={styles.name}>{title}</Text>
+        <Text style={styles.cuisines}>Chinese • American</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -117,12 +119,14 @@ const screenStyles = StyleSheet.create({
   },
 });
 
-const FeaturedPartners = () => {
+const FeaturedPartners = ({ navigation }) => {
   return (
     <View style={screenStyles.container}>
       <FlatList
         data={restaurantData}
-        renderItem={({ item }) => <RestaurantCard item={item} />}
+        renderItem={({ item }) => (
+          <RestaurantCard item={item} navigation={navigation} />
+        )}
         keyExtractor={(item) => item.id}
         numColumns={2}
         columnWrapperStyle={screenStyles.row}

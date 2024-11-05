@@ -12,11 +12,11 @@ import {
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const ResetEmail = () => {
+const ResetEmail = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <TextContent />
-      <SendButton />
+      <SendButton navigation={navigation} />
       <Img />
     </SafeAreaView>
   );
@@ -36,9 +36,9 @@ const TextContent = () => {
   );
 };
 
-const SendButton = () => {
+const SendButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={buttonStyles.signInButton}>
+    <TouchableOpacity style={buttonStyles.signInButton} onPress={()=>{navigation.navigate('SignUp')}}>
       <Text style={buttonStyles.buttonText}>SEND AGAIN</Text>
     </TouchableOpacity>
   );

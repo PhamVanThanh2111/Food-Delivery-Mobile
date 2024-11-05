@@ -11,14 +11,14 @@ import {
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const WalkThrough01 = () => {
+const WalkThrough01 = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <HeaderText />
       <Illustrations />
       <DescriptionText />
       <Indicator activeIndex={1} total={3} />
-      <CTAButton />
+      <CTAButton navigation={navigation}/>
     </SafeAreaView>
   );
 };
@@ -74,9 +74,9 @@ const Indicator = ({ activeIndex = 0, total = 3 }) => {
   );
 };
 
-const CTAButton = () => {
+const CTAButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={ctaButtonStyles.button}>
+    <TouchableOpacity style={ctaButtonStyles.button} onPress={()=>{navigation.navigate('WalkThrough02')}}>
       <Text style={ctaButtonStyles.buttonText}>GET STARTED</Text>
     </TouchableOpacity>
   );

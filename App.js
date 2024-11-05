@@ -14,13 +14,15 @@ import HomePage from './javascript/HomePage'
 import FeaturedPartners from './javascript/FeaturedPartners'
 import SingleRestaurant from './javascript/SingleRestaurant'
 import TypeLocation from './javascript/TypeLocation'
+import EnterAddress from './javascript/EnterAddress'
+import ConfirmPhoneNumber from './javascript/ConfirmPhoneNumber'
 
 const Stack = createStackNavigator();
 
 const YourApp = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TypeLocation">
+      <Stack.Navigator initialRouteName="SingleRestaurant">
         <Stack.Screen name="ScreenWelcome" component={ScreenWelcome} />
         <Stack.Screen name="WalkThrough01" component={WalkThrough01} />
         <Stack.Screen name="WalkThrough02" component={WalkThrough02} />
@@ -30,10 +32,12 @@ const YourApp = () => {
         <Stack.Screen name="ResetEmail" component={ResetEmail} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="LoginByPhoneNumber" component={LoginByPhoneNumber} />
+        <Stack.Screen name="ConfirmPhoneNumber" component={ConfirmPhoneNumber} />
+        <Stack.Screen name="EnterAddress" component={EnterAddress} />
+        <Stack.Screen name="TypeLocation" component={TypeLocation} />
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="FeaturedPartners" component={FeaturedPartners} />
         <Stack.Screen name="SingleRestaurant" component={SingleRestaurant} />
-        <Stack.Screen name="TypeLocation" component={TypeLocation} />
       </Stack.Navigator>
     </NavigationContainer>
   );

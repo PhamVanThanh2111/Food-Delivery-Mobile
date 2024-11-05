@@ -78,7 +78,7 @@ const Indicator = ({ activeIndex = 0, total = 3 }) => {
 const CTAButton = ({navigation}) => {
   return (
     <TouchableOpacity
-      style={ctaButtonStyles.button} onPress={navigation.navigate('WalkThrough03')}>
+      style={ctaButtonStyles.button} onPress={()=>{navigation.navigate('WalkThrough03')}}>
       <Text style={ctaButtonStyles.buttonText}>GET STARTED</Text>
     </TouchableOpacity>
   );

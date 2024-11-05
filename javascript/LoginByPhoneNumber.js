@@ -72,7 +72,7 @@ const PhoneNumberInput = () => {
 
 const PrimaryButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('HomePage')}}>
+    <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('ConfirmPhoneNumber')}}>
       <Text style={styles.buttonText}>SIGN UP</Text>
     </TouchableOpacity>
   );

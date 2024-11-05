@@ -6,9 +6,10 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 
-const SingleRestaurant = ({navigation}) => (
+const SingleRestaurant = ({ navigation }) => (
   <SafeAreaView style={{ flex: 1 }}>
     <ScrollView>
       <HeaderImage />
@@ -17,6 +18,7 @@ const SingleRestaurant = ({navigation}) => (
       <FeaturedItems />
       <MenuTabs />
       <MostPopulars />
+      <SeaFoods />
     </ScrollView>
   </SafeAreaView>
 );
@@ -34,10 +36,11 @@ const RestaurantInfo = () => (
   <View style={styles.infoContainer}>
     <Text style={styles.restaurantName}>Mayfield Bakery & Cafe</Text>
     <Text style={styles.type}>$$ • Chinese • American • Deshi food</Text>
-    <View style={{display: 'flex', flexDirection: 'row'}}>
-    <Text style={styles.rating}>4.3 </Text>
-    <Text style={{color: '#EEA734'}}>★</Text>
-    <Text style={styles.rating}> 200+ Ratings</Text></View>
+    <View style={{ display: 'flex', flexDirection: 'row' }}>
+      <Text style={styles.rating}>4.3 </Text>
+      <Text style={{ color: '#EEA734' }}>★</Text>
+      <Text style={styles.rating}> 200+ Ratings</Text>
+    </View>
   </View>
 );
 
@@ -78,11 +81,13 @@ const FeaturedItems = () => (
     <Text style={styles.title}>Featured Items</Text>
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {FeaturedItemsData.map((item, index) => (
-        <View key={index} style={styles.card}>
-          <Image source={item.img} style={styles.image} />
-          <Text style={styles.cardTitle}>{item.name}</Text>
-          <Text style={styles.cardSubtitle}>$$ • Chinese</Text>
-        </View>
+        <TouchableOpacity>
+          <View key={index} style={styles.card}>
+            <Image source={item.img} style={styles.image} />
+            <Text style={styles.cardTitle}>{item.name}</Text>
+            <Text style={styles.cardSubtitle}>$$ • Chinese</Text>
+          </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   </View>
@@ -122,20 +127,58 @@ const MostPopulars = () => (
   <View style={styles.popularContainer}>
     <Text style={styles.title}>Most Populars</Text>
     {MostPopularsData.map((item, index) => (
-      <View key={index} style={styles.item}>
-        <Image
-          source={item.img}
-          style={styles.itemImage}
-        />
-        <View style={styles.itemText}>
-          <Text style={styles.itemTitle}>{item.name}</Text>
-          <Text style={styles.itemDesc}>
-            Shortbread, chocolate turtle cookies, and red velvet
-          </Text>
-          <Text style={styles.itemType}>$$ • Chinese</Text>
-          <Text style={styles.itemPrice}>AUD$10</Text>
+      <TouchableOpacity>
+        <View key={index} style={styles.item}>
+          <Image source={item.img} style={styles.itemImage} />
+          <View style={styles.itemText}>
+            <Text style={styles.itemTitle}>{item.name}</Text>
+            <Text style={styles.itemDesc}>
+              Shortbread, chocolate turtle cookies, and red velvet
+            </Text>
+            <Text style={styles.itemType}>$$ • Chinese</Text>
+            <Text style={styles.itemPrice}>AUD$10</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
+    ))}
+  </View>
+);
+
+const SeaFoodsData = [
+  {
+    id: 1,
+    name: 'Oyster Dish',
+    img: require('../images/OysterDish.png'),
+  },
+  {
+    id: 2,
+    name: 'Oyster On Ice',
+    img: require('../images/OysterOnIce.png'),
+  },
+  {
+    id: 3,
+    name: 'Fried Rice on Pot',
+    img: require('../images/FriedRiceonPot.png'),
+  },
+];
+
+const SeaFoods = () => (
+  <View style={styles.popularContainer}>
+    <Text style={styles.title}>Sea Foods</Text>
+    {SeaFoodsData.map((item, index) => (
+      <TouchableOpacity>
+        <View key={index} style={styles.item}>
+          <Image source={item.img} style={styles.itemImage} />
+          <View style={styles.itemText}>
+            <Text style={styles.itemTitle}>{item.name}</Text>
+            <Text style={styles.itemDesc}>
+              Shortbread, chocolate turtle cookies, and red velvet
+            </Text>
+            <Text style={styles.itemType}>$$ • Chinese</Text>
+            <Text style={styles.itemPrice}>AUD$10</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     ))}
   </View>
 );

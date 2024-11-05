@@ -112,18 +112,20 @@ const searchBarStyles = StyleSheet.create({
   },
 });
 
-const AddressItem = ({ addressName, state }) => {
+const AddressItem = ({ addressName, state , navigation}) => {
   return (
-    <View style={addressStyles.container}>
-      <Image
-        source={require('../images/location1Icon.png')}
-        style={addressStyles.icon}
-      />
-      <View style={addressStyles.textContainer}>
-        <Text style={addressStyles.addressName}>{addressName}</Text>
-        <Text style={addressStyles.state}>{state}</Text>
+    <TouchableOpacity onPress={()=>{navigation.navigate('HomePage')}}>
+      <View style={addressStyles.container}>
+        <Image
+          source={require('../images/location1Icon.png')}
+          style={addressStyles.icon}
+        />
+        <View style={addressStyles.textContainer}>
+          <Text style={addressStyles.addressName}>{addressName}</Text>
+          <Text style={addressStyles.state}>{state}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -162,7 +164,7 @@ const addressStyles = StyleSheet.create({
   },
 });
 
-const RestaurantFinder = () => {
+const RestaurantFinder = ({navigation}) => {
   const DATA = [
     {
       key: '1',
@@ -193,7 +195,7 @@ const RestaurantFinder = () => {
       <FlatList
         data={DATA}
         renderItem={({ item }) => (
-          <AddressItem addressName={item.addressName} state={item.state} />
+          <AddressItem addressName={item.addressName} state={item.state} navigation={navigation} />
         )}
         keyExtractor={(item) => item.key}
       />

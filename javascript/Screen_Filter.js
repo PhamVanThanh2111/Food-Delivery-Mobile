@@ -1,16 +1,25 @@
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const FiltersScreen = () => {
+const FiltersScreen = ({navigation}) => {
+  const [selectedCategory, setSelectedCategory] = useState('Burgers');
+  const [selectedDiet, setSelectedDiet] = useState('Any');
+  const [selectedPrice, setSelectedPrice] = useState('$$');
+
   return (
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Categories</Text>
-      <TouchableOpacity style={styles.clearAll}>
+      <TouchableOpacity style={styles.clearAll} onPress={() => setSelectedCategory(null)}>
         <Text style={styles.clearText}>Clear all</Text>
       </TouchableOpacity>
       <View style={styles.optionsRow}>
         {['All', 'Brunch', 'Dinner', 'Burgers', 'Chinese', 'Pizza', 'Salads', 'Soups', 'Breakfast'].map((category, index) => (
-          <TouchableOpacity key={index} style={[styles.optionButton, category === 'Burgers' && styles.selectedButton]}>
-            <Text style={[styles.optionText, category === 'Burgers' && styles.selectedText]}>
+          <TouchableOpacity
+            key={index}
+            style={[styles.optionButton, selectedCategory === category && styles.selectedButton]}
+            onPress={() => setSelectedCategory(category)}
+          >
+            <Text style={[styles.optionText, selectedCategory === category && styles.selectedText]}>
               {category}
             </Text>
           </TouchableOpacity>
@@ -18,13 +27,17 @@ const FiltersScreen = () => {
       </View>
 
       <Text style={styles.sectionTitle}>Dietary</Text>
-      <TouchableOpacity style={styles.clearAll}>
+      <TouchableOpacity style={styles.clearAll} onPress={() => setSelectedDiet(null)}>
         <Text style={styles.clearText}>Clear all</Text>
       </TouchableOpacity>
       <View style={styles.optionsRow}>
         {['Any', 'Vegetarian', 'Vegan', 'Gluten-Free'].map((diet, index) => (
-          <TouchableOpacity key={index} style={[styles.optionButton, diet === 'Any' && styles.selectedButton]}>
-            <Text style={[styles.optionText, diet === 'Any' && styles.selectedText]}>
+          <TouchableOpacity
+            key={index}
+            style={[styles.optionButton, selectedDiet === diet && styles.selectedButton]}
+            onPress={() => setSelectedDiet(diet)}
+          >
+            <Text style={[styles.optionText, selectedDiet === diet && styles.selectedText]}>
               {diet}
             </Text>
           </TouchableOpacity>
@@ -32,20 +45,24 @@ const FiltersScreen = () => {
       </View>
 
       <Text style={styles.sectionTitle}>Price Range</Text>
-      <TouchableOpacity style={styles.clearAll}>
+      <TouchableOpacity style={styles.clearAll} onPress={() => setSelectedPrice(null)}>
         <Text style={styles.clearText}>Clear all</Text>
       </TouchableOpacity>
       <View style={styles.optionsRow}>
         {['$', '$$', '$$$', '$$$$', '$$$$$'].map((price, index) => (
-          <TouchableOpacity key={index} style={[styles.priceButton, price === '$$' && styles.selectedButton]}>
-            <Text style={[styles.priceText, price === '$$' && styles.selectedText]}>
+          <TouchableOpacity
+            key={index}
+            style={[styles.priceButton, selectedPrice === price && styles.selectedButton]}
+            onPress={() => setSelectedPrice(price)}
+          >
+            <Text style={[styles.priceText, selectedPrice === price && styles.selectedText]}>
               {price}
             </Text>
           </TouchableOpacity>
         ))}
       </View>
 
-      <TouchableOpacity style={styles.applyButton}>
+      <TouchableOpacity style={styles.applyButton} onPress={()=>{navigation.navigate('Screen_SearchRes')}}>
         <Text style={styles.applyButtonText}>APPLY FILTERS</Text>
       </TouchableOpacity>
     </View>
@@ -93,9 +110,8 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 12,
     color: '#010f07',
-    fontWeight:'500',
+    fontWeight: '500',
     textTransform: 'uppercase',
- 
   },
   selectedText: {
     color: '#ffffff',

@@ -39,13 +39,13 @@ const AddMoreSection = () => (
   </View>
 );
 
-const PrimaryButton = ({ label }) => (
-  <TouchableOpacity style={styles.button}>
+const PrimaryButton = ({ label , navigation}) => (
+  <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('ScreenPayment')}}>
     <Text style={styles.buttonText}>{label}</Text>
   </TouchableOpacity>
 );
 
-const YourOrdersScreen = () => {
+const YourOrder = ({navigation}) => {
   return (
     <View style={styles.container}>
       <OrderItem
@@ -68,7 +68,7 @@ const YourOrdersScreen = () => {
       />
       <OrderSummary />
       <AddMoreSection />
-      <PrimaryButton label="Continue (AUD $30)" />
+      <PrimaryButton label="Continue (AUD $30)" navigation={navigation} />
     </View>
   );
 };
@@ -186,4 +186,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default YourOrdersScreen;
+export default YourOrder;

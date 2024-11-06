@@ -1,7 +1,7 @@
 
-import { View, Text, TextInput, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default SearchScreen = () => {
+export default SearchScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.statusBar}></View>
@@ -29,13 +29,13 @@ export default SearchScreen = () => {
         </View>
 
         {recentSearches.map((item, index) => (
-          <View key={index} style={styles.searchItem}>
+          <TouchableOpacity key={index} style={styles.searchItem} onPress={()=>{navigation.navigate('Screen_SearchResult')}}>
             <Image
                 source={require('../images/search.png')}
               style={styles.searchIcon}
             />
             <Text style={styles.searchText}>{item}</Text>
-          </View>
+          </TouchableOpacity>
         ))}
       </View>
     </View>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 
-const SearchRestaurantsScreen = () => {
+const SearchRestaurantsScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Search</Text>
@@ -21,26 +21,26 @@ const SearchRestaurantsScreen = () => {
       <Text style={styles.subtitle}>Top Restaurants</Text>
 
       <View style={styles.cardsContainer}>
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Screen_SearchFood')}}>
           <Image    source={require('../images/bg.png')} style={styles.cardImage} />
           <Text style={styles.cardTitle}>The Halal Guys</Text>
           <Text style={styles.cardSubtitle}>$$  •  Chinese</Text>
-        </View>
-        <View style={styles.card}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card}>
             <Image    source={require('../images/res1.png')} style={styles.cardImage} />
           <Text style={styles.cardTitle}>Popeyes 1426 Flmst</Text>
           <Text style={styles.cardSubtitle}>$$  •  Chinese</Text>
-        </View>
-        <View style={styles.card}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card}>
            <Image    source={require('../images/res2.png')} style={styles.cardImage} />
           <Text style={styles.cardTitle}>Mixt - Yerba Buena</Text>
           <Text style={styles.cardSubtitle}>$$  •  Chinese</Text>
-        </View>
-        <View style={styles.card}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card}>
             <Image    source={require('../images/res3.png')} style={styles.cardImage} />
           <Text style={styles.cardTitle}>Split Bread - Russian</Text>
           <Text style={styles.cardSubtitle}>$$  •  Chinese</Text>
-        </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.tabBar}>

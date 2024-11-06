@@ -11,23 +11,20 @@ import {
 
 const dataImg = [
   { id: '1', img: require('../images/res3.png'), name: 'Fast Food' },
-  {
-    id: '2',
-    img: require('../images/res1.png'),
-    name: 'Breakfast & Brunch',
-  },
+  { id: '2', img: require('../images/res1.png'), name: 'Breakfast & Brunch' },
   { id: '3', img: require('../images/res2.png'), name: 'Mexican' },
   { id: '4', img: require('../images/bg.png'), name: 'Bakery' },
   { id: '5', img: require('../images/bg2.png'), name: 'Desserts' },
   { id: '6', img: require('../images/res2.png'), name: 'Desserts' },
 ];
 
-const CategoryCard = ({ categoryName, categoryImg }) => {
+const CategoryCard = ({ categoryName, categoryImg , navigation}) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('SearchingFood')}}>
       <Image source={categoryImg} style={styles.image} resizeMode="cover" />
+      <View style={styles.overlay} />
       <Text style={styles.text}>{categoryName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -63,7 +60,7 @@ const TabBar = () => {
   );
 };
 
-const App = () => {
+const Search_food = ({navigation}) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <View style={{ padding: 20 }}>
@@ -88,6 +85,7 @@ const App = () => {
               key={item.id}
               categoryName={item.name}
               categoryImg={item.img}
+              navigation={navigation}
             />
           ))}
         </ScrollView>
@@ -109,21 +107,22 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   image: {
-    width: 160, // Match the image to the background size
+    width: 160,
     height: 160,
     position: 'absolute',
+    borderRadius: 10,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent black overlay
+    borderRadius: 10,
   },
   text: {
     fontSize: 16,
-    fontWeight: '300',
-    color: '#fff',
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.85)', // Softer white color
     textAlign: 'center',
-    width: 96,
-    height: 24,
-    letterSpacing: -0.28,
-    lineHeight: 24,
     position: 'absolute',
-    bottom: 10, // position the text within the card
   },
   tabContainer: {
     flexDirection: 'row',
@@ -159,4 +158,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Search_food;

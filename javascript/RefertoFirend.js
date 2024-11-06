@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const ReferToFriend = () => {
+const ReferToFriend = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -12,7 +12,7 @@ const ReferToFriend = () => {
       <Text style={styles.message}>
         Get $10 in credits when someone sign up using your refer link
       </Text>
-      <TouchableOpacity style={styles.linkContainer}>
+      <TouchableOpacity style={styles.linkContainer} onPress={()=>{navigation.navigate('Screen_BrowserFoods')}}>
         <Image
           source={require('../images/next.png')}
           style={styles.linkIcon}

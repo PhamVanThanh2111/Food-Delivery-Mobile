@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
 
-const AddressItem = ({ icon, address }) => {
+const AddressItem = ({ icon, address, navigation }) => {
   return (
-    <View style={styles.addressItem}>
+    <TouchableOpacity style={styles.addressItem} onPress={()=>{navigation.navigate('Screen_AddSocialAccount')}}>
       <Image source={typeof icon === 'string' ? { uri: icon } : icon} style={styles.addressIcon} />
       <Text style={styles.addressText}>{address}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const Locations = () => {
+const Locations = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Payment Methods</Text>
@@ -34,18 +34,22 @@ const Locations = () => {
       <AddressItem
         icon={require('../images/location.png')}
         address="Hay Street, Perth"
+        navigation={navigation}
       />
       <AddressItem
          icon={require('../images/location.png')}
         address="Zoo, Perth"
+        navigation={navigation}
       />
       <AddressItem
          icon={require('../images/location.png')}
         address="Murray Street, Perth"
+        navigation={navigation}
       />
       <AddressItem
         icon={require('../images/location.png')}
         address="St George Terrace, Perth"
+        navigation={navigation}
       />
     </View>
   );

@@ -16,9 +16,9 @@ const OrderItem = ({ quantity, name, description, price }) => {
   );
 };
 
-const OrderSuccess = () => {
+const OrderSuccess = ({navigation}) => {
   return (
-    <View style={styles.successContainer}>
+    <TouchableOpacity style={styles.successContainer} onPress={()=>{navigation.navigate('Screen_AccountSetting')}}>
       <View style={styles.iconContainer}>
         <Image
           source={require('../images/done.png')}
@@ -32,11 +32,11 @@ const OrderSuccess = () => {
       <TouchableOpacity>
         <Text style={styles.keepBrowsing}>KEEP BROWSING</Text>
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const OrderComplete = () => {
+const OrderComplete = ({navigation}) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -59,7 +59,7 @@ const OrderComplete = () => {
           description="Shortbread, chocolate turtle cookies, and red velvet."
           price="AUD$10"
         />
-        <OrderSuccess />
+        <OrderSuccess navigation={navigation} />
       </ScrollView>
     </View>
   );

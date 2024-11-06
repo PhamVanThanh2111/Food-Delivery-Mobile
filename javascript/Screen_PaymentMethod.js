@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const AddPaymentMethodScreen = () => {
+const AddPaymentMethodScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Add your payment methods</Text>
@@ -25,7 +25,7 @@ const AddPaymentMethodScreen = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.addButton}>
+      <TouchableOpacity style={styles.addButton} onPress={()=>{navigation.navigate('Screen_Filter')}}>
         <Text style={styles.addButtonText}>ADD CARD</Text>
       </TouchableOpacity>
 

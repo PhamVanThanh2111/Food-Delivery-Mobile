@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 
 const RestaurantCard = ({ image, name, type, rating, delivery, time }) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card}>
       <Image source={image} style={styles.cardImage} />
       <View style={styles.cardOverlay}>
         <Text style={styles.cardTime}>{time}</Text>
@@ -12,7 +12,7 @@ const RestaurantCard = ({ image, name, type, rating, delivery, time }) => {
       </View>
       <Text style={styles.cardName}>{name}</Text>
       <Text style={styles.cardType}>{type}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

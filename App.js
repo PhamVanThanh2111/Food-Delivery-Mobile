@@ -19,8 +19,7 @@ import ConfirmPhoneNumber from './javascript/ConfirmPhoneNumber'
 import AddToOrder from './javascript/AddToOrder'
 
 import SearchingFood from './javascript/Screen_SearchingFood';
-import ResultSearching from './javascript/Screen_resultSearching';
-import Screen17 from './javascript/Screen_17YourOrders';
+import YourOrder from './javascript/Screen_17YourOrders';
 import ScreenPayment from './javascript/Screen_PaymentMethod';
 import Screen_Filter from './javascript/Screen_Filter';
 import Screen_SearchRes from './javascript/Screen_SearchRes';
@@ -45,7 +44,7 @@ const Stack = createStackNavigator();
 const YourApp = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Screen_Filter">
+      <Stack.Navigator initialRouteName="ScreenWelcome">
         <Stack.Screen name="ScreenWelcome" component={ScreenWelcome} />
         <Stack.Screen name="WalkThrough01" component={WalkThrough01} />
         <Stack.Screen name="WalkThrough02" component={WalkThrough02} />
@@ -63,16 +62,17 @@ const YourApp = () => {
         <Stack.Screen name="SingleRestaurant" component={SingleRestaurant} />
         <Stack.Screen name="AddToOrder" component={AddToOrder} />
 
-        <Stack.Screen name="SearchingFood" component={SearchingFood} />
-    <Stack.Screen name="ResultSearching" component={ResultSearching} />
-        <Stack.Screen name="Screen17" component={Screen17} />
+        <Stack.Screen name="YourOrder" component={YourOrder} />
         <Stack.Screen name="ScreenPayment" component={ScreenPayment} />
-    <Stack.Screen name="Screen_Filter" component={Screen_Filter} />
+        <Stack.Screen name="Screen_Filter" component={Screen_Filter} />
         <Stack.Screen name="Screen_SearchRes" component={Screen_SearchRes} />
-    <Stack.Screen name="Screen_SearchFood" component={Screen_SearchFood} />
+        <Stack.Screen name="Screen_SearchFood" component={Screen_SearchFood} />
+        <Stack.Screen name="SearchingFood" component={SearchingFood} />
+        <Stack.Screen name="Screen_SearchResult" component={Screen_SearchResult} />
         <Stack.Screen name="Screen_YourOder" component={Screen_YourOder} />
         <Stack.Screen name="Screen_CofirmOrder" component={Screen_CofirmOrder} />
         <Stack.Screen name="Screen_OrderComplete" component={Screen_OrderComplete} />
+        <Stack.Screen name="Screen_AccountSetting" component={Screen_AccountSetting} />
         <Stack.Screen name="Screen_ProfileSetting" component={Screen_ProfileSetting} />
         <Stack.Screen name="Screen_ChangePassword" component={Screen_ChangePassword} />
         <Stack.Screen name="Screen_PaymentMethod" component={Screen_PaymentMethod} />
@@ -82,8 +82,6 @@ const YourApp = () => {
         <Stack.Screen name="Screen_RefertoFirends" component={Screen_RefertoFirends} />
         <Stack.Screen name="Screen_BrowserFoods" component={Screen_BrowserFoods} />
         <Stack.Screen name="Screen_FindRestaurant" component={Screen_FindRestaurant} />
-        <Stack.Screen name="Screen_SearchResult" component={Screen_SearchResult} />
-    <Stack.Screen name="Screen_AccountSetting" component={Screen_AccountSetting} />
       </Stack.Navigator>
     </NavigationContainer>
   );

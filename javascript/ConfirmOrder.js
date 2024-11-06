@@ -49,15 +49,15 @@ const Actions = () => {
   );
 };
 
-const CheckoutButton = () => {
+const CheckoutButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={styles.checkoutButton}>
+    <TouchableOpacity style={styles.checkoutButton} onPress={()=>{navigation.navigate('Screen_OrderComplete')}}>
       <Text style={styles.checkoutButtonText}>CHECKOUT (AUD $30)</Text>
     </TouchableOpacity>
   );
 };
 
-const ConfirmOrder = () => {
+const ConfirmOrder = ({navigation}) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -83,7 +83,7 @@ const ConfirmOrder = () => {
         <Total />
         <Actions />
       </ScrollView>
-      <CheckoutButton />
+      <CheckoutButton navigation={navigation} />
     </View>
   );
 };

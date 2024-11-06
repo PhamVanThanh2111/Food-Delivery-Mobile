@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const FoodGridItem = ({ image, name, type, rating, time, delivery }) => {
+const FoodGridItem = ({ image, name, type, rating, time, delivery, navigation }) => {
   return (
-    <View style={styles.gridItem}>
+    <TouchableOpacity style={styles.gridItem} onPress={()=>{navigation.navigate('Screen_YourOder')}}>
       <Image source={image} style={styles.gridImage} />
       <View style={styles.overlay}>
         <Text style={styles.time}>
@@ -31,11 +31,11 @@ const FoodGridItem = ({ image, name, type, rating, time, delivery }) => {
       </View>
       <Text style={styles.itemName}>{name}</Text>
       <Text style={styles.itemType}>{type}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const SearchResults = () => {
+const SearchResults = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -54,6 +54,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/bf2.png')}
@@ -62,6 +63,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/bf3.png')}
@@ -70,6 +72,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/bf4.png')}
@@ -78,6 +81,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/res1.png')}
@@ -86,6 +90,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/res2.png')}
@@ -94,6 +99,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
         <FoodGridItem
           image={require('../images/res3.png')}
@@ -102,6 +108,7 @@ const SearchResults = () => {
           rating="4.5"
           time="25min"
           delivery="Free"
+          navigation={navigation}
         />
       </View>
     </ScrollView>

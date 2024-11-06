@@ -179,15 +179,15 @@ const OrderQuantity = () => {
   );
 };
 
-const AddToOrderButton = () => {
+const AddToOrderButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={orderStyles.button}>
+    <TouchableOpacity style={orderStyles.button} onPress={()=>{navigation.navigate('YourOrder')}}>
       <Text style={orderStyles.text}>ADD TO ORDER ($11.98)</Text>
     </TouchableOpacity>
   );
 };
 
-const ProductScreen = () => {
+const ProductScreen = ({navigation}) => {
   return (
     <ScrollView style={screenStyles.container}>
       <ProductHeader />
@@ -196,7 +196,7 @@ const ProductScreen = () => {
       <CookieBottomChoiceList />
       <SpecialInstructions />
       <OrderQuantity />
-      <AddToOrderButton />
+      <AddToOrderButton navigation={navigation} />
     </ScrollView>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const PaymentMethod = () => {
+const PaymentMethod = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Payment Methods</Text>
@@ -13,7 +13,7 @@ const PaymentMethod = () => {
       <Text style={styles.cardMessage}>
         It’s seems like you have not added any credit or debit card. You may easily add card.
       </Text>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Screen_CardList')}}>
         <Text style={styles.buttonText}>ADD CREDIT CARDS</Text>
       </TouchableOpacity>
     </View>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
-const FoodCard = ({ image, name, types, rating, ratingsCount, time, deliveryCost }) => {
+const FoodCard = ({ image, name, types, rating, ratingsCount, time, deliveryCost, navigation }) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Screen_FindRestaurant')}}>
       <Image source={image} style={styles.cardImage} />
       <Text style={styles.cardName}>{name}</Text>
       <Text style={styles.cardTypes}>{types}</Text>
@@ -12,11 +12,11 @@ const FoodCard = ({ image, name, types, rating, ratingsCount, time, deliveryCost
         <Text style={styles.cardTime}>⏰ {time}</Text>
         <Text style={styles.cardDelivery}>💵 {deliveryCost}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const BrowseFoods = () => {
+const BrowseFoods = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <FoodCard 
@@ -27,6 +27,7 @@ const BrowseFoods = () => {
         ratingsCount="200+ Ratings"
         time="25 Min"
         deliveryCost="Free"
+        navigation={navigation}
       />
       <FoodCard 
         image={require('../images/bf2.png')}
@@ -36,6 +37,7 @@ const BrowseFoods = () => {
         ratingsCount="200+ Ratings"
         time="25 Min"
         deliveryCost="Free"
+        navigation={navigation}
       />
       <FoodCard 
         image={require('../images/bf3.png')}
@@ -45,6 +47,7 @@ const BrowseFoods = () => {
         ratingsCount="200+ Ratings"
         time="25 Min"
         deliveryCost="Free"
+        navigation={navigation}
       />
             <FoodCard 
         image={require('../images/bf4.png')}
@@ -54,6 +57,7 @@ const BrowseFoods = () => {
         ratingsCount="200+ Ratings"
         time="25 Min"
         deliveryCost="Free"
+        navigation={navigation}
       />
     </ScrollView>
   );

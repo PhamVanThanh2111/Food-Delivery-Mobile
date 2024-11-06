@@ -20,22 +20,22 @@ const PasswordField = ({ label }) => {
   );
 };
 
-const ChangePasswordButton = () => {
+const ChangePasswordButton = ({navigation}) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Screen_PaymentMethod')}}>
       <Text style={styles.buttonText}>CHANGE PASSWORD</Text>
     </TouchableOpacity>
   );
 };
 
-const ChangePassword = () => {
+const ChangePassword = ({navigation}) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff', padding: 20 }}>
       <Text style={styles.title}>Profile Settings</Text>
       <PasswordField label="Password" />
       <PasswordField label="New Password" />
       <PasswordField label="Confirm Password" />
-      <ChangePasswordButton />
+      <ChangePasswordButton navigation={navigation} />
     </View>
   );
 };

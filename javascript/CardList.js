@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const CardItem = ({ imageUrl, cardName, status }) => {
+const CardItem = ({ imageUrl, cardName, status, navigation }) => {
   return (
-    <TouchableOpacity style={styles.cardItem}>
+    <TouchableOpacity style={styles.cardItem} onPress={()=>{navigation.navigate('Screen_Location')}}>
       <Image
         source={typeof imageUrl === 'string' ? { uri: imageUrl } : imageUrl}
         style={styles.cardIcon}
@@ -20,7 +20,7 @@ const CardItem = ({ imageUrl, cardName, status }) => {
   );
 };
 
-const CardList = () => {
+const CardList = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Payment Methods</Text>
@@ -28,16 +28,19 @@ const CardList = () => {
         imageUrl={require('../images/palpay.png')}
         cardName="PayPal"
         status="Default Payment"
+        navigation={navigation}
       />
       <CardItem
         imageUrl={require('../images/mastercard.png')}
         cardName="MasterCard"
         status="Not Default"
+        navigation={navigation}
       />
       <CardItem
         imageUrl={require('../images/visa.png')}
         cardName="Visa"
         status="Not Default"
+        navigation={navigation}
       />
     </View>
   );

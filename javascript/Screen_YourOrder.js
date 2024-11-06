@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const OrderCard = ({ imageUrl, name, description, price, type }) => {
+const OrderCard = ({ imageUrl, name, description, price, type, navigation }) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Screen_CofirmOrder')}}>
       <Image
         source={typeof imageUrl === 'string' ? { uri: imageUrl } : imageUrl}
         style={styles.image}
@@ -24,7 +24,7 @@ const OrderCard = ({ imageUrl, name, description, price, type }) => {
           <Text style={styles.price}>{price}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -60,7 +60,7 @@ const TabBar = () => {
   );
 };
 
-const Orders = () => {
+const Orders = ({navigation}) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView style={{ padding: 20 }}>
@@ -74,6 +74,7 @@ const Orders = () => {
           description="Shortbread, chocolate turtle cookies, and red velvet."
           type="$$ • Chinese"
           price="AUD$10"
+          navigation={navigation}
         />
         <OrderCard
           imageUrl={require('../images/res2.png')}
@@ -81,6 +82,7 @@ const Orders = () => {
           description="Shortbread, chocolate turtle cookies, and red velvet."
           type="$$ • Chinese"
           price="AUD$10"
+          navigation={navigation}
         />
         <OrderCard
           imageUrl={require('../images/hamber.png')}
@@ -88,6 +90,7 @@ const Orders = () => {
           description="Shortbread, chocolate turtle cookies, and red velvet."
           type="$$ • Chinese"
           price="AUD$10"
+          navigation={navigation}
         />
         <Text style={styles.proceedPayment}>Proceed Payment</Text>
         <View style={styles.sectionHeader}>
@@ -100,6 +103,7 @@ const Orders = () => {
           description="Shortbread, chocolate turtle cookies, and red velvet."
           type="$$ • Chinese"
           price="AUD$10"
+          navigation={navigation}
         />
       </ScrollView>
       <TabBar />

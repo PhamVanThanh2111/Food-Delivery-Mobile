@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const SocialButton = ({ icon, text, backgroundColor }) => {
+const SocialButton = ({ icon, text, backgroundColor, navigation }) => {
   return (
-    <TouchableOpacity style={[styles.button, { backgroundColor }]}>
+    <TouchableOpacity style={[styles.button, { backgroundColor }]} onPress={()=>{navigation.navigate('Screen_RefertoFirends')}}>
       <Image source={icon} style={styles.icon} />
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
 };
 
-const AddSocialAccounts = () => {
+const AddSocialAccounts = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Add social accounts</Text>
@@ -21,11 +21,13 @@ const AddSocialAccounts = () => {
         icon={require('../images/facebook.png')}
         text="CONNECT WITH FACEBOOK"
         backgroundColor="#3b5998"
+        navigation={navigation}
       />
       <SocialButton
         icon={require('../images/google.png')}
         text="CONNECT WITH GOOGLE"
         backgroundColor="#4285f4"
+        navigation={navigation}
       />
     </View>
   );
